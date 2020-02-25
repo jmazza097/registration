@@ -5,6 +5,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(/img/logo.png) no-repeat;
+  background-size: 50%;
+  background-position: right;
+  background-color: #14213D;
+  min-height: 900px;
+
+}
+
+form{
+  padding: 5%;
+  margin-top: 3%;
+  max-width: 600px;
+}
+
+form button, form h5{
+  margin: 3% 0;
+}
+
+button.btn.blue.lighten{
+  min-width: 200px;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]),
+input[type=email]:not(.browser-default):focus:not([readonly]),
+input[type=password]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]){
+  border-color: #14213D;
+  box-shadow: none;
 }
 
 code {
