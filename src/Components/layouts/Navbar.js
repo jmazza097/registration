@@ -6,8 +6,8 @@ import AdminLinks from './AdminLinks'
 
 const Navbar = () =>{
     return(
-        <nav class = "nav-wrapper blue darken-4">
-            <div class="container">
+        <nav className = "nav-wrapper blue darken-4">
+            <div className="container">
                 <Link to='/' className="brand-logo">Don Code-leone</Link>
                 <StudentLinks/>
                 <AdminLinks/>
