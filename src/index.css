@@ -26,6 +26,9 @@ form button, form h5{
 button.btn.blue.lighten{
   min-width: 200px;
 }
+.notifications{
+  color:#fff;
+}
 
 input[type=text]:not(.browser-default):focus:not([readonly]),
 input[type=email]:not(.browser-default):focus:not([readonly]),
