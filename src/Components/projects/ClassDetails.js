@@ -1,21 +1,47 @@
 import React from 'react'
+import {connect } from 'react-redux'
+import {firestoreConnect} from 'react-redux-firebase'
+import {compose} from 'redux'
 
 const ClassDetails = (props) => {
-    const id =props.match.params.id;    
-    return (
-        <div className="container section class-details">
-            <div className="cardz-depth-0">
-                <div className="card-content">
-                    <h3 class="card-title">Class title - {id}</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deleniti repellat, eos sapiente maxime asperiores voluptas doloremque sint eum dolorum ab, atque excepturi fugit praesentium ut neque id aperiam? Magni, nemo.</p>
-                </div>
-                <div className="card-action grey lighten-4 grey-text">
-                    <div>Posted by ay boi</div>
-                    <div>Date</div>
-                </div>
+    const { project } = props;
+    if (project) {
+      return (
+        <div className="container section project-details">
+          <div className="card z-depth-0">
+            <div className="card-content">
+              <span className="card-title">{project.title}</span>
+              <p>{project.description}</p>
             </div>
+            <div className="card-action grey lighten-4 grey-text">
+              <div>Taught by {project.authorFirstName} {project.authorLastName}</div>
+              <div>2nd September, 2am</div>
+            </div>
+          </div>
         </div>
-    )
-}
+      )
+    } else {
+      return (
+        <div className="container center">
+          <p>Loading project...</p>
+        </div>
+      )
+    }
+  }
 
-export default ClassDetails
+const mapStateToProps = (state, ownProps) => {
+    // console.log(state);
+    const id = ownProps.match.params.id;
+    const projects = state.firestore.data.projects;
+    const project = projects ? projects[id] : null
+    return {
+      project: project
+    }
+  }
+
+export default compose (
+    connect(mapStateToProps),
+    firestoreConnect([
+        {collection: 'projects'}
+    ])
+    )(ClassDetails)
