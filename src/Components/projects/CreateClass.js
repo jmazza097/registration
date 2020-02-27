@@ -4,7 +4,7 @@ import {createProject } from '../../store/actions/projectsActions'
 
 class CreateClass extends Component {
     state={
-        Name: '',
+        title: '',
         description: ''
     }
     handleChange = (e) =>{
