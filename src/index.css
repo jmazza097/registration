@@ -42,6 +42,11 @@ textarea.materialize-textarea:focus:not([readonly]){
   margin: inherit;
   padding-left: 10%;
 }
+.nav-wrapper{
+  position: fixed;
+  z-index: 1;
+  top: 0;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
